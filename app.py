@@ -65,9 +65,13 @@ if run_game == True:
     print("__________________________________________")
     print("you come across a cave and enter in there are two paths" \
     " one says 'heaven' the other says 'hell which do you choose to enter? ")
-    cave_choice = input("enter either 'danger' or 'heaven'").lower().strip()
-    while cave_choice != "danger" or "heaven":
-        print("not a valid entry try again")
-        cave_choice = input("enter either 'danger' or 'heaven'").lower().strip()
-    if cave_choice == "danger" or "heaven":
-        print(f"you chose the {cave_choice} path, you MIGHT be cooked gng")
+    cave_choice = input("enter either 'danger' or 'heaven': ").strip().lower()
+
+while cave_choice != "danger" and cave_choice != "heaven":
+    print("not a valid entry try again")
+    cave_choice = input("enter either 'danger' or 'heaven': ").strip().lower()
+
+print(f"you chose the {cave_choice} path, you MIGHT be cooked gng")
+
+if cave_choice == "danger":
+    print("")
