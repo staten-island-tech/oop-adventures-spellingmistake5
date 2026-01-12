@@ -78,25 +78,53 @@ if cave_choice == "danger":
     print("You walk into a empty room and see a big red button and pushed it, causing you to  get shhot by a arrow")
     player.attacked()
     print("here are your stats")
-    print("health:",health)
-    print("stregth:", strength)
-    print("stamina:", stamina )
-    print("hunger:", hunger)
-    print("sleep:", sleep)
+    print("health:",player.health)
+    print("stregth:", player.strength)
+    print("stamina:", player.stamina )
+    print("hunger:", player.hunger)
+    print("sleep:", player.sleep)
 
 elif cave_choice == "heaven":
     print("okay so you walk in a room and theres a door to the next level, with no consequences so you advanced!!!")
     print("here are your stats")
-    print("health:",health)
-    print("stregth:", strength)
-    print("stamina:", stamina )
-    print("hunger:", hunger)
-    print("sleep:", sleep)
+    print("health:", player.health)
+    print("stregth:", player.strength)
+    print("stamina:", player.stamina )
+    print("hunger:", player.hunger)
+    print("sleep:", player.sleep)
 
 print("Level 2")
 print("__________________________________________")
 print("as you escape the cabve you walk around and suddenly get surounded by a" \
-"group of monkeys their leader ")
+"group of monkeys, their leader chris tell you to either 1v30 their whole clan or take 50 lashes " \
+"to the back via the monkey tails ")
+print("what do you chose ??")
+monkey_choice = input("enter either 'whipped' or '1v30': ").strip().lower()
+
+while monkey_choice != "whipped" and cave_choice != "1v30":
+    print("not a valid entry try again")
+    cave_choice = input("enter either 'whipped' or '1v30': ").strip().lower()
+print(f"you chose {monkey_choice} what is wrong with you bro, you lowkenuinely might end ur run rn gng")
 
 
+if monkey_choice == "whipped":
+    print("the monkeys all whip you with their tails and you get scars all over")
+    player.attacked()
+    print("here are your stats")
+    print("health:",player.health)
+    print("stregth:", player.strength)
+    print("stamina:", player.stamina )
+    print("hunger:", player.hunger)
+    print("sleep:", player.sleep)
 
+elif monkey_choice == "1v30":
+    print("okay so you somehow manage to 1v30 the monlkeys and solo their leader so they leave you alone")
+    print("here are your stats")
+    print("health:",player.health)
+    print("stregth:", player.strength)
+    print("stamina:", player.stamina )
+    print("hunger:", player.hunger)
+    print("sleep:", player.sleep)
+
+print("Level 3")
+print("__________________________________________")
