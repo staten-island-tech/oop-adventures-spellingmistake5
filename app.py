@@ -93,4 +93,10 @@ elif cave_choice == "heaven":
     print("hunger:", hunger)
     print("sleep:", sleep)
 
+print("Level 2")
+print("__________________________________________")
+print("as you escape the cabve you walk around and suddenly get surounded by a" \
+"group of monkeys their leader ")
+
+
 
