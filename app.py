@@ -17,35 +17,31 @@ class hero:
         self.sleep = sleep
 
     def attacked(self):
-        global health, strength, stamina, hunger, sleep
-        self.health = max(100, health - random.randint(1,health))
-        self.strength = max(100, strength - random.randint(1,strength))
-        self.stamina = max(100, stamina - random.randint(1,stamina))
-        self.hunger = max(100, hunger - random.randint(1,hunger))
-        self.sleep = max(100, sleep - random.randint(1,sleep))
+        self.health = min(100, health - random.randint(1,health))
+        self.strength = min(100, strength - random.randint(1,strength))
+        self.stamina = min(100, stamina - random.randint(1,stamina))
+        self.hunger = min(100, hunger - random.randint(1,hunger))
+        self.sleep = min(100, sleep - random.randint(1,sleep))
 
     def ate_food(self):
-        global hunger
-        self.hunger = max(100, hunger + random.randint(1, hunger))
+        self.hunger = min(100, hunger + random.randint(1, hunger))
 
     def slept(self):
-        global sleep, stamina, strength
-        self.sleep = max(100, sleep + random.randint(1,sleep))
-        self.stamina = max(100, stamina + random.randint(1,stamina))
-        self.strength = max(100, strength + random.randint(1,strength))
+        self.sleep = min(100, sleep + random.randint(1,sleep))
+        self.stamina = min(100, stamina + random.randint(1,stamina))
+        self.strength = min(100, strength + random.randint(1,strength))
 
     def work_out(self):
-        global sleep, stamina, strength, hunger
-        self.strength = max(100, strength + random.randint(1,strength))
-        self.stamina = max(100, stamina - random.randint(1,stamina))
-        self.sleep = max(100, sleep - random.randint(1,sleep))
-        self.hunger = max(100, hunger - random.randint(1,hunger))
+        self.strength = min(100, strength + random.randint(1,strength))
+        self.stamina = min(100, stamina - random.randint(1,stamina))
+        self.sleep = min(100, sleep - random.randint(1,sleep))
+        self.hunger = min(100, hunger - random.randint(1,hunger))
+    
 
 if health < 1:
     run_game = False
 if health > 1:
     run_game = True
-
 
 if run_game == True:
     print("      ")
@@ -60,7 +56,7 @@ if run_game == True:
     print("hunger:", hunger)
     print("sleep:", sleep)
     name = input("what name would you like to input for this run?")
-    player = hero(name)
+    player = hero(f"{name}")
     print(f"okay" ,name, "Welcome to your run")
     print("Level 1")
     print("__________________________________________")
@@ -128,3 +124,36 @@ elif monkey_choice == "1v30":
 
 print("Level 3")
 print("__________________________________________")
+print("As you escape the monkeys you get on a boat to get to level 4 but in the middle of the trip poesideon lowkey pulls up" \
+"and tells you to either defeate him in a 1v1 OR fight off 2 megladon sharks to the death.")
+print("what do you chose ??")
+ocean_choice = input("enter either '1v1' or '1v2': ").strip().lower()
+
+while monkey_choice != "1v1" and cave_choice != "1v2":
+    print("not a valid entry try again")
+    ocean_choice = input("enter either '1v1' or '1v2': ").strip().lower()
+print(f"you chose {ocean_choice} gl gang youll need it")
+
+
+
+if ocean_choice == "1v1":
+    print("You start 1v1ing poseidon and right as your about to lose, odyysseus pulls up and" \
+    "impales poesideon with his own trident 600 times so you escape")
+    player.ate_food()
+    player.slept
+    print("here are your stats")
+    print("health:",player.health)
+    print("stregth:", player.strength)
+    print("stamina:", player.stamina )
+    print("hunger:", player.hunger)
+    print("sleep:", player.sleep)
+
+elif ocean_choice == "1v2":
+    player.attacked()
+    print("you threw stuff to try and beat the sharks but they lowk took a bite out of you")
+    print("here are your stats")
+    print("health:",player.health)
+    print("stregth:", player.strength)
+    print("stamina:", player.stamina )
+    print("hunger:", player.hunger)
+    print("sleep:", player.sleep)
