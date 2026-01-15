@@ -129,7 +129,7 @@ print("As you escape the monkeys you get on a boat to get to level 4 but in the 
 print("what do you chose ??")
 ocean_choice = input("enter either '1v1' or '1v2': ").strip().lower()
 
-while monkey_choice != "1v1" and cave_choice != "1v2":
+while ocean_choice != "1v1" and ocean_choice != "1v2":
     print("not a valid entry try again")
     ocean_choice = input("enter either '1v1' or '1v2': ").strip().lower()
 print(f"you chose {ocean_choice} gl gang youll need it")
